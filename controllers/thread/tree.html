@@ -1,0 +1,23 @@
+<ul>
+  <li bf-template="vm.items" ng-repeat="node in $dataSource">
+    <div>
+      <span ng-if="node.$hasChildren()" ng-click="node.$foldToggle()">
+        <span ng-if="!node.$isFolded()">-</span>
+        <span ng-if="node.$isFolded()">+</span>
+      </span>
+      <label>
+        <input type="checkbox" bf-check-indeterminate="node.$isIndeterminate()" ng-model="node.$checked"
+               ng-change="node.$setCheckState(node.$checked)"/>
+        {{node.title}}
+        -
+        {{node.poster}}({{node.dateCreated|date}})
+      </label>
+      <a ui-sref="thread.show({id: node.id, title: node.title, poster: node.poster})">查看</a>
+    </div>
+    <ul ng-if="node.$hasChildren() && !node.$isFolded()">
+      <li bf-recurse="node.items"></li>
+    </ul>
+  </li>
+</ul>
+
+<button type="button" ng-click="vm.test()">添加测试数据</button>

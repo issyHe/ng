@@ -1,0 +1,4 @@
+RewriteEngine on       
+###RewriteRule ([/_0-9a-zA-Z]+).html$ /wolf/index.php?typeid=$1 [PT]
+RewriteRule api\/([a-zA-Z]+)\/$ /wolf/index.php?typeid=$1 [PT]
+

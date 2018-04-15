@@ -1,0 +1,21 @@
+<form name="form" ng-submit="vm.submit(vm.form)" novalidate="novalidate">
+  <div>
+    <label for="_email">邮箱</label>
+    <input id="_email" bf-field-error type="email" ng-required="true" value="1119466956@qq.com" ng-model="vm.form.email"/>
+  </div>
+  <div>
+    <label for="_nickname">昵称</label>
+    <input id="_nickname" bf-field-error type="text" ng-required="true" ng-model="vm.form.nickname" value="hejun" />
+  </div>
+  <div>
+    <label for="_password">密码</label>
+    <input id="_password" bf-field-error type="password" ng-required="true" ng-model="vm.form.password" value="123456" />
+  </div>
+  <div>
+    <label for="_retypedPassword">确认密码</label>
+    <input id="_retypedPassword" bf-field-error="{same: '确认密码必须和密码完全相同'}" type="password" ng-required="true" ng-model="vm.retypedPassword" bf-assert-same-as="vm.form.password" value="123456" />
+  </div>
+  <div>
+    <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">立即注册</button>
+  </div>
+</form>
